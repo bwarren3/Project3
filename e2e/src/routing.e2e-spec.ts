@@ -14,4 +14,26 @@ describe('workspace-project App', () => {
     
     expect(subTitle.getText()).toEqual('Brackets App');
   });
+  
+  it('should navigate to the registration page', () => {
+    browser.get('/registration');
+    var subTitle = element(by.id('subpageTitle'));
+    
+    expect(subTitle.getText()).toEqual('Register Players');
+  });
+  
+  it('should navigate to the brackets page', () => {
+    browser.get('/brackets');
+    var subTitle = element(by.id('subpageTitle'));
+    
+    expect(subTitle.getText()).toEqual('Brackets');
+  });
+  
+  it('should navigate to welcome page from another page', () => {
+    browser.get('/brackets');
+    browser.get('/welcome');
+    var subTitle = element(by.id('subpageTitle'));
+    
+    expect(subTitle.getText()).toEqual('Brackets App');
+  });
 });
